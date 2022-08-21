@@ -21,3 +21,27 @@
   * Maven
   * ABNA Credentials
   * PKCS12 with ABNA Certificates
+
+### Usage example
+------------
+ExampleMain.java
+
+```
+package nl.abna.ibanchecker;
+
+import nl.abna.ibanchecker.domain.gateway.IbanCheckerClientInterface;
+
+public class ExampleMain {
+    public static void main( String[] args ) throws Exception {
+        IbanCheckerClientInterface client = new IbanCheckerClientBuilder()
+                .enableSandboxMode()
+                .withApiKey("2OCXj2iI98VeEtCefSw9rHZPRVapW5hw")
+                .withClientId("test_client")
+                .withPkcs12("./var/keyStore.p12", "")
+                .build();
+
+        client.checkIban("NL58ABNA9999142181","Doortje Doorzon");
+    }
+}
+
+```
