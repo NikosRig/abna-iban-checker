@@ -4,7 +4,6 @@ import nl.abna.ibanchecker.domain.gateway.CheckIbanResponse;
 
 public class ExampleMain {
     public static void main( String[] args ) throws Exception {
-        //2OCXj2iI98VeEtCefSw9rHZPRVapW5hw
         IbanCheckerConfig config = new IbanCheckerConfig(
                 "./var/keyStore.p12",
                 true,
