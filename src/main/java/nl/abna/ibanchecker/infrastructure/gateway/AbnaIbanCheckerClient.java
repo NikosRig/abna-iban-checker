@@ -1,22 +1,23 @@
 package nl.abna.ibanchecker.infrastructure.gateway;
 
 import nl.abna.ibanchecker.domain.gateway.CheckIbanResponse;
-import nl.abna.ibanchecker.domain.gateway.IbanCheckerGatewayInterface;
+import nl.abna.ibanchecker.domain.gateway.IbanCheckerClientInterface;
 import nl.abna.ibanchecker.domain.gateway.exceptions.BadResponseException;
 import org.json.JSONObject;
+
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.UUID;
 
-public class AbnaIbanCheckerGateway implements IbanCheckerGatewayInterface {
+public class AbnaIbanCheckerClient implements IbanCheckerClientInterface {
     private final AbnaCredentials credentials;
     private final HttpClient client;
     private String authUri;
     private String ibanCheckUrl;
 
-    public AbnaIbanCheckerGateway(AbnaCredentials credentials, HttpClient client) {
+    public AbnaIbanCheckerClient(AbnaCredentials credentials, HttpClient client) {
         this.credentials = credentials;
         this.client = client;
         this.setupGatewayUrls(credentials);
