@@ -17,14 +17,18 @@
 &nbsp;
 ### Prerequisites
 ------------
-  * Java 18
+  * Java 11+
   * Maven
   * ABNA Credentials
   * PKCS12 with ABNA Certificates
 
 ### Usage example
 ------------
+> **_NOTE:_**  The library already contains a pkcs12 file with public ABNA's sandbox certificates.
+&nbsp;
+
 ExampleMain.java
+
 
 ```
 package nl.abna.ibanchecker;
