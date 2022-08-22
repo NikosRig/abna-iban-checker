@@ -1,6 +1,6 @@
 package nl.abna.ibanchecker.infrastructure.gateway;
 
-import nl.abna.ibanchecker.domain.gateway.CheckIbanResponse;
+import nl.abna.ibanchecker.domain.gateway.IbanCheckResponse;
 import nl.abna.ibanchecker.domain.gateway.IbanCheckerClientInterface;
 import nl.abna.ibanchecker.domain.gateway.exceptions.BadResponseException;
 import org.json.JSONObject;
@@ -62,7 +62,7 @@ public class AbnaIbanCheckerClient implements IbanCheckerClientInterface {
     }
 
     @Override
-    public CheckIbanResponse checkIban(String iban, String name) throws BadResponseException {
+    public IbanCheckResponse checkIban(String iban, String name) throws BadResponseException {
         try {
             AccessToken accessToken = this.createAccessToken();
             JSONObject jsonBody = new JSONObject();
@@ -83,8 +83,20 @@ public class AbnaIbanCheckerClient implements IbanCheckerClientInterface {
                 throw new Exception("Iban check failed with code " + response.statusCode());
             }
             JSONObject jsonResponsePayload = new JSONObject(response.body());
+            JSONObject check = jsonResponsePayload.getJSONObject("check");
+            JSONObject account = jsonResponsePayload.getJSONObject("account");
+            JSONObject ibanNameMatching = jsonResponsePayload.getJSONObject("ibanNameMatching");
+            JSONObject accountHolder = jsonResponsePayload.getJSONObject("accountHolder");
 
-             return new CheckIbanResponse(true);
+             return new IbanCheckResponse(
+                     check.getJSONObject("iban").getBoolean("valid"),
+                     ibanNameMatching.getString("type").equals("MATCHING"),
+                     account.getBoolean("foreign"),
+                     account.getString("status").equals("ACTIVE"),
+                     account.getString("countryCode"),
+                     accountHolder.getInt("numberOfAccountHolders")
+
+             );
         } catch (Exception e) {
             throw new BadResponseException(e.getMessage());
         }

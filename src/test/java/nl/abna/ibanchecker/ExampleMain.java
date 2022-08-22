@@ -11,6 +11,6 @@ public class ExampleMain {
                 .withPkcs12("./var/keyStore.p12", "")
                 .build();
 
-        client.checkIban("NL58ABNA9999142181","Doortje Doorzon");
+        client.checkIban("NL62ABNA9999841479","test name");
     }
 }
