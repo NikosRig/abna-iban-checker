@@ -1,4 +1,4 @@
-## ABNA Iban Checker (Under-construction)
+## ABNA Iban Checker
 
 <p float="left">
   <img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white"/>
@@ -21,10 +21,12 @@
   * Maven
   * ABNA Credentials
   * PKCS12 with ABNA Certificates
+  
+    
 
 ### Usage example
 ------------
-> **_NOTE:_**  The library already contains a pkcs12 file with public ABNA's sandbox certificates.
+> **_Note:_**  The library already contains a pkcs12 file with public ABNA's sandbox certificates. It's password is an empty string.
 &nbsp;
 
 ExampleMain.java
@@ -39,7 +41,7 @@ public class ExampleMain {
     public static void main( String[] args ) throws Exception {
         IbanCheckerClientInterface client = new IbanCheckerClientBuilder()
                 .enableSandboxMode()
-                .withApiKey("2OCXj2iI98VeEtCefSw9rHZPRVapW5hw")
+                .withApiKey("2OCXj2iI98VeEtCefSw9raHZdPRVapW5hw")
                 .withClientId("test_client")
                 .withPkcs12("./var/keyStore.p12", "")
                 .build();
