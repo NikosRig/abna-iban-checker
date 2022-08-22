@@ -1,5 +1,5 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>nl.abna.ibanchecker</groupId>
   <artifactId>abna-iban-checker</artifactId>
@@ -9,6 +9,12 @@
     <maven.compiler.source>18</maven.compiler.source>
     <maven.compiler.target>18</maven.compiler.target>
   </properties>
+  <developers>
+    <developer>
+      <name>Nikos Rigas</name>
+      <email>nikosrigas95@gmail.com</email>
+    </developer>
+  </developers>
   <name>abna-iban-checker</name>
   <url>http://maven.apache.org</url>
   <dependencies>
