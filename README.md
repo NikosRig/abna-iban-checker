@@ -23,6 +23,7 @@
   * PKCS12 with ABNA Certificates
   
     
+&nbsp;
 
 ### Usage example
 ------------
@@ -46,7 +47,7 @@ public class ExampleMain {
                 .withPkcs12("./var/keyStore.p12", "")
                 .build();
 
-        IbanCheckResponse ibanCheckResponse = client.checkIban("NL62ABNA9999841479","test");
+        IbanCheckResponse ibanCheckResponse = client.checkIban("NL62ABNA9999841479", "test");
         JSONObject responsePayload = new JSONObject();
         responsePayload.put("iban_valid", ibanCheckResponse.isIbanValid);
         responsePayload.put("name_matched", ibanCheckResponse.isNameMatched);
