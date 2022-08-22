@@ -13,8 +13,7 @@ import java.net.http.HttpResponse;
 
 import static org.mockito.ArgumentMatchers.any;
 
-
-public class AbnaIbanCheckerGatewayTest {
+public class AbnaIbanCheckerClientTest {
     private HttpClient client;
     private AbnaIbanCheckerClient gateway;
 
